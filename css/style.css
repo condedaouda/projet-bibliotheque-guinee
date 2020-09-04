@@ -1,0 +1,728 @@
+.bienvenue_index {
+	text-align: center;
+	background-color: #2E9AFE;
+}
+
+
+.code_alerte {
+	
+	color: #FF4000;
+}
+
+#code{
+	height: 35px;
+}
+
+.code_ecole label {
+	font-size: 25px;
+}
+
+/*le responsif design*/
+
+@media screen and (max-width: 300px){
+	.code_ecole{
+		position: absolute;
+		top: 50%;
+		/*left: 50%;*/
+		background-color: #E6E6E6;
+		text-align: center;
+		border-radius: 5px;
+		/*margin-left: -200px;*/
+		margin-top: -120px;
+		width: 100%;
+		height: 220px;
+
+		padding-top: 5px;
+	}
+
+	#code{
+		width: 95%;
+	}
+
+	.principal_button
+	{
+		width: 95%;
+	}
+}
+
+@media screen and (min-width: 301px) and (max-width: 5000px){
+	.code_ecole{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		background-color: #E6E6E6;
+		text-align: center;
+		border-radius: 5px;
+		margin-left: -200px;
+		margin-top: -120px;
+		width: 400px;
+		height: 190px;
+
+		padding-top: 5px;
+	}
+}
+
+
+.code_ecole .principal_button
+{
+	margin-top: 10px;
+	height: 40px;
+	font-size: 25px;
+}
+
+
+.ajouts
+{
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	background-color: #E6E6E6;
+	display: inline-block;
+	border-radius: 10px;
+	margin-left: -250px;
+	margin-top: -170px;
+	width: 600px;
+	padding-left: 30px;
+	padding-top: 5px;
+	word-wrap: break-word;
+}
+
+
+input, textarea
+{
+	border: 1px solid #FFFFFF;
+	border-radius: 8px;
+	width: 230px;
+	/*box-shadow: 1px 1px 2px #C0C0C0 inset;*/
+	/*background-color: #E6E6E6;*/
+	font-family: inherit;
+	font-size: 100%;
+}
+
+
+body
+{
+	font-size: 90%;
+}
+
+label
+{
+	display: block;
+}
+
+input[type=submit]{
+	margin-top: 10px;
+	margin-bottom: 8px;
+	box-shadow: 1px 1px 1px #848484;
+	cursor: pointer;
+	/*background-color: #A4A4A4;*/
+	font-weight: bold;
+	font-style: italic;
+}
+
+
+.ajouts p
+{
+	text-decoration: none;
+	padding: 3px 1px 0;
+	margin-bottom: 15px;
+	font-size: 30px;
+}
+
+
+.body_principale
+{
+	background-color: #FFFFFF;
+	text-align: center;
+}
+
+/*dans la classe*/
+@media screen and (max-width: 320px){
+	form .nom_matiere
+	{
+		width: 95%;
+		height: 50px;
+		font-size: 20px;
+	}
+	
+}
+
+@media screen and (min-width: 320px) and (max-width: 5000px){
+	form .nom_matiere
+	{
+		width: 300px;
+		height: 50px;
+	}
+}
+
+
+
+/*pour le button de validation dans classe.php*/
+@media screen and (max-width: 320px){
+	form .class_button
+	{
+		/*background-color: #A4A4A4;*/
+		width: 95%;
+		height: 40px;
+		font-size: 20px;
+	}	
+}
+
+@media screen and (min-width: 320px) and (max-width: 5000px){
+	form .class_button
+	{
+		/*background-color: #A4A4A4;*/
+		width: 300px;
+		height: 40px;
+		font-size: 20px;
+	}
+}
+
+.zoom_photo_ecole
+{
+	
+	border: 4px solid #2E2E2E;
+	border-radius: 10px;
+	padding: 5px;
+	width: 300px;
+
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*le responsve sur l'image*/
+@media only screen and (max-width: 5000px){
+	.zoom_photo_ecole{
+		width: 320px;
+		margin: 6px 0;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+@media only screen and (max-width: 350px){
+	.zoom_photo_ecole{
+		width: 100%;
+	}
+}
+
+/*le button pour changer la classe*/
+@media only screen and (max-width: 5000px){
+	.btn-primary
+	{
+		margin-bottom: 15px;
+		width: 250px;
+	}
+}
+
+@media only screen and (max-width: 250px){
+	.btn-primary
+	{
+		margin-bottom: 15px;
+		width: 95%;
+	}
+}
+
+#classe
+{
+	border: 1px solid #D8D8D8;
+	border-radius: 5px;
+	width: 110px;
+	box-shadow: 1px 1px 2px #C0C0C0 inset;
+	/*background-color: #D8D8D8;*/
+	font-family: inherit;
+	font-size: 100%;
+	height: 35px;
+}
+
+.bod_class
+{
+	background-color: #FFFFFF;
+	text-align: center;
+}
+
+
+#nom_ecole
+{
+	background-color: #58ACFA;
+	margin-left: auto;
+	margin-right: auto;
+	font-weight: bold;
+	margin-bottom: 10px;
+	font-size: 28px;
+	animation-duration: 1s;
+	animation-name: slidein;
+	animation-iteration-count: infinite;
+}
+
+
+.changer_classe
+{
+	background-color: red;
+}
+
+.class_nom_ecole
+{
+	font-weight: bold;
+	margin-bottom: 2px;
+	width: 100%;
+	font-size: 30px;
+	background-color: #58ACFA;
+
+	word-wrap: break-word;
+}
+
+.slogant_class
+{
+	font-size: 20px;
+	font-style: italic;
+	background-color: #A9F5A9;
+	margin-bottom: 10px;
+
+	animation-duration: 1s;
+	animation-name: slogant;
+	animation-iteration-count: infinite;
+
+	word-wrap: break-word;
+}
+
+@keyframes slogant{
+	from{
+		background-color: #FFFFFF;
+	}
+
+	to{
+		background-color: #E6E6E6;
+	}
+}
+
+.class_label
+{
+	margin-bottom: 0;
+	margin-top: 20px;
+	font-style: italic;
+	font-size: 18px;
+}
+
+form #classe
+{
+	margin-bottom: 10px;
+}
+
+.bienvenue
+{
+	margin-bottom: 0;
+	font-size: 22px;
+	background-color: #58ACFA;
+	word-wrap: break-word;
+}
+
+.valeur_class{
+	font-size: 22px;
+	margin-bottom: 0;
+}
+
+/*le dossier.php*/
+@media only screen and (max-width: 5000px){
+	form .dossier_button
+	{
+		width: 280px;
+		height: 50px;
+		background-color: #EFEFFB;
+		font-size: 18px;
+	}
+}
+
+@media only screen and (max-width: 300px){
+	form .dossier_button
+	{
+		width: 95%;
+		height: 50px;
+		background-color: #EFEFFB;
+		font-size: 18px;
+	}
+}
+
+.bod_dossier
+{
+	background-color: #FFFFFF;
+	text-align: center;
+}
+
+.dossier_nom_ecole
+{
+	font-weight: bold;
+	font-size: 18px;
+	margin-bottom: 0;
+	width: 100%;
+	font-size: 28px;
+	background-color: #58ACFA;
+	/*font-style: italic;*/
+}
+
+.button_dossier
+{
+	background-color: #2E64FE;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid #FFFFFF;
+	border-radius: 5px;
+	width: 230px;
+}
+
+.btn-primary a
+{
+	color: white;
+	font-size: 20px;
+}
+
+/*index.php*/
+@media screen and (max-width: 200px){
+	.button_retour_affich img
+		{
+			width: 100%;
+		}
+}
+
+.bod_affic_doc
+{
+	background-color: #FFFFFF;
+	text-align: center;
+}
+
+.button_retour_affich
+{
+	top: 0;
+	left: 0;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.espacement
+{
+	margin-top: 10px;
+}
+
+/*dans le dossier d'affichage*/
+.livres_brochures  
+{
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 5000px){
+	.commentaire_sujet_eval
+	{
+		width: 400px;
+	}
+
+	.photo_liv_bro{
+		width: 300px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 3px;
+	}
+}
+
+@media only screen and (max-width: 350px){
+	.livres_brochures{
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 30px;
+	}
+
+	.photo_livr_broch{
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.photo_liv_bro{
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 3px;
+	}
+
+	.recherche_document{
+		width: 100%;
+	}
+
+	.zone_recherche input{
+		width: 90%;
+	} 
+
+	.button_recherche input{
+		width: 90%;
+	} 
+
+	.container_lecture_telechargement
+	{
+		width: 100%;
+		height: 35px;
+		font-size: 20px;
+		margin-bottom: 50px;
+	}
+
+	.commentaire_sujet_eval
+	{
+		width: 100%;
+	}
+}
+
+
+.div_lecture_telechargement
+{
+	display: inline-block;
+	height: 35px;
+}
+
+
+.lecture
+{
+	border: 1px solid #FFFFFF;
+	border-radius: 2px;
+	width: 123px;
+	background-color: #FFFFFF;
+	height: 35px;
+}
+
+.telechargement
+{
+	border: 1px solid #FFFFFF;
+	border-radius: 2px;
+	width: 123px;
+	background-color: #FFFFFF;
+	height: 35px;
+}
+
+.commentaire_livr_broch
+{
+	font-style: italic;
+	margin-bottom: 2px;
+	font-size: 18px;
+	word-wrap: break-word;
+}
+
+.recherche_document
+{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.nom_ecole_affich
+{
+	background-color: #2E9AFE;
+	padding-bottom: 5px;
+	font-weight: bold;
+	font-size: 20px;
+	word-wrap: break-word;
+	/*font-style: italic;*/
+}
+
+@keyframes nom_ecole_affi{
+	from{
+		background-color: #FFFFFF;
+	}
+
+	to{
+		background-color: #A9A9F5;
+	}
+}
+
+.button_recherche input
+{
+	background-color: #8181F7;
+	border: 1px solid #8181F7;
+	height: 30px;
+}
+
+.zone_recherche input
+{
+	border: 1px solid #8181F7;
+	height: 35px;
+}
+
+.number_annee
+{
+	border: 1px solid #8181F7;
+	width: 140px; 
+	height: 35px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 8px;
+	font-weight: bold;
+	font-size: 20px;
+	background-color: #FFFFFF;
+	border-radius: 5px;
+}
+
+.commentaire_sujet_eval
+{
+	margin-bottom: 10px;
+	background-color: #F2F2F2;
+	font-size: 18px;
+	margin-left: auto;
+	margin-right: auto;
+	word-wrap: break-word;
+	border-radius: 2px;
+}
+
+.commentaire_sujet_eval a {
+	color: #2E2E2E;
+}
+
+/*rechercheFinale.php*/
+
+.bod_recherche_final
+{
+	background-color: #FFFFFF;
+	text-align: center;
+}
+
+
+.result_sujetexamen
+{
+	border: 1px solid #8181F7;
+	width: 200px; 
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 5px;
+	font-weight: bold;
+	background-color: #E6E6E6;
+	border-radius: 5px;
+}
+
+.result_vide
+{
+	color: #FA5858;
+	word-wrap: break-word;
+}
+
+
+/*ajoutfichier.php*/
+
+.bod_ajout_fichier
+{
+	text-align: center;
+	background-color: #BDBDBD;
+}
+
+.form_ajout_fichier label
+{
+	margin-bottom: 0;
+}
+
+.form_ajout_fichier input
+{
+	margin-bottom: 10px;
+	background-color: #FAFAFA;
+}
+
+
+/*ajoutEcole.php*/
+.bod_ajoutEcole
+{
+	text-align: center;
+	background-color: #BDBDBD;
+}
+
+.form_ajoutEcole label
+{
+	margin-bottom: 0;
+}
+
+.form_ajoutEcole input
+{
+	margin-bottom: 10px;
+	background-color: #FAFAFA;
+}
+
+/*modierEcoleNomCode.php*/
+.bod_modifEcolNomCode
+{
+	text-align: center;
+	background-color: #BDBDBD;
+}
+
+.form_modifEcolNomCode input
+{
+	margin-bottom: 10px;
+	background-color: #FAFAFA;
+}
+
+.form_modifEcolNomCode label
+{
+	margin-top: 50px;
+	margin-bottom: 0;
+}
+
+/*modifierEcolePhoto.php*/
+.bod_modifEcolPhoto
+{
+	text-align: center;
+	background-color: #BDBDBD;
+}
+
+.form_modifEcolPhoto input
+{
+	margin-bottom: 10px;
+	background-color: #FAFAFA;
+}
+
+/*modifierEcoleSlogant*/
+.bod_modifEcolSlogant
+{
+	text-align: center;
+	background-color: #BDBDBD;
+}
+
+/*modifierFichier.php*/
+.bod_modifierFichier
+{
+	text-align: center;
+	background-color: #BDBDBD;
+}
+
+.bod_modifierFichier label
+{
+	margin-bottom: 0;
+}
+
+.anoter_bien
+{
+	font-weight: bold;
+}
+
+/*modifierExamen.php*/
+.bod_modifierExamen
+{
+	text-align: center;
+	background-color: #BDBDBD;
+}
+
+.bod_modifierExamen label
+{
+	margin-bottom: 0;
+}
+
+
+/*ajouterMatiere.php*/
+
+.bod_ajouterMatiere
+{
+	text-align: center;
+	background-color: #BDBDBD;
+}
+
+/*dans le Admin*/
+.body_admin
+{
+	text-align: center;
+}
+
+
