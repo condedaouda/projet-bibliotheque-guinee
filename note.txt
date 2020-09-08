@@ -1,0 +1,7 @@
+
+
+
+les sujet d'examen et evaluations doivent etre ecrite sous format text avec les logiciels(GNU TeXmacs ou Dmaths ou http://www.les-mathematiques.net/phorum/read.php?10,402574) et directement utiliser le fichier dans la base de donnee.
+
+apres le ficher doit etre converti en pdf
+

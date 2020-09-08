@@ -12,12 +12,14 @@ require '../connection/dataConnexion.php';
 <html>
 <head>
 	<title>Documents</title>
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/style1.css">
+	<link rel="stylesheet" type="text/css" href="../css/responsive.css">
+	<!-- <link rel="stylesheet" type="text/css" href="../css/style.css"> -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 	<link rel="icon" type="image/png" href="../photo/icon.png"/>
 </head>
-<body class="bod_affic_doc">
+<body>
 
 	<?php 
 
@@ -38,17 +40,19 @@ if (isset($_SESSION['verification_page'])) {
 	// la matiere
 	$matiere = $_SESSION['nom_matiere'];
 
+echo '<div class="wrap_document">';
+
 	// pour bien ecrire le nom si ces le sujet devaluation ou le sujet dexamen
 	if ($_SESSION['nom_dossier'] === 'sujetevaluation') {
-		echo '<div class="nom_ecole_affich">'. $_SESSION['nom_ecole_session'] .': Sujets d\'évaluation</div>';
+		// echo '<h4>'. $_SESSION['nom_ecole_session'] .': Sujets d\'évaluation</h4>';
 		$val_doc_search = " sujet d'évaluation..."; //pour l'utiliser dans la recherche
 
 	}elseif ($_SESSION['nom_dossier'] === 'sujetexamen') {
-		echo '<div class="nom_ecole_affich">'. $_SESSION['nom_ecole_session'] .': Sujets d\'examen</div>';
+		// echo '<h4">'. $_SESSION['nom_ecole_session'] .': Sujets d\'examen</h4>';
 		$val_doc_search = " sujet d'examen..."; //pour l'utiliser dans la recherche
 
 	}else{
-		echo '<div class="nom_ecole_affich">'. $_SESSION['nom_ecole_session'] .': '.$chemin. '</div>';
+		// echo '<h4">'. $_SESSION['nom_ecole_session'] .': '.$chemin. '</h4>';
 		$val_doc_search = " livre/brochure..."; //pour l'utiliser dans la recherche
 
 	}
@@ -56,39 +60,48 @@ if (isset($_SESSION['verification_page'])) {
 	// la recherche du document -->
 	require 'recherche.php';
 
+echo '</div>';
+
 	$val_doc_search = ""; //on vide le contenu
- 
+echo '<div class="liste_document">';
+
+echo '<div class="container">';
 	// si le dossier nest pas sujetevaluation
 	if ($chemin === 'livres' OR $chemin === 'brochures') {
 		$resultat = $connexion->query("SELECT * FROM $data WHERE class = '$classe' AND matiere = '$matiere'");
 	 	while ($donnees = $resultat->fetch()) {
 	 	?>
 
-	 	<div class="livres_brochures">
-	 		<p class="commentaire_livr_broch">
-	 			<?php echo $donnees['commentaire']; ?>				
-	 		</p>
+			<div class="box">
+				<div class="image_conteneur">
 
-			<div class="photo_livr_broch">
-				<a href="../<?php echo $chemin; ?>/<?php echo $classe; ?>/<?php echo $matiere; ?>/<?php echo $donnees['image']; ?>">
-					
-					<img src="../<?php echo $chemin; ?>/<?php echo $classe; ?>/<?php echo $matiere; ?>/<?php echo $donnees['image']; ?>" class='photo_liv_bro'>
-				</a>			
-			</div>
+					<p class="commentaire_livr_broch">
+						<?php echo $donnees['commentaire']; ?>				
+					</p>
 
-		 	<div class="container_lecture_telechargement">
-		 		<div class="div_lecture_telechargement">
-		 			<button class="lecture"><a href="../<?php echo $chemin; ?>/<?php echo $classe; ?>/<?php echo $matiere; ?>/<?php echo $donnees['nom']; ?>" >Ouvrir</a></button>
+					<a href="../<?php echo $chemin; ?>/<?php echo $classe; ?>/<?php echo $matiere; ?>/<?php echo $donnees['image']; ?>">					
+						<img src="../<?php echo $chemin; ?>/<?php echo $classe; ?>/<?php echo $matiere; ?>/<?php echo $donnees['image']; ?>" class='img-thumbnail photo_liv_bro'>
+					</a>
+				</div>
+				
+				<div class="container_lecture_telechargement">
+					<div class="div_lecture_telechargement">
+						<button class="btn btn-outline-primary lecture"><a href="../<?php echo $chemin; ?>/<?php echo $classe; ?>/<?php echo $matiere; ?>/<?php echo $donnees['nom']; ?>" >Ouvrir</a></button>
+					</div>
+
+					<div class="div_lecture_telechargement"> 
+						<button class="btn btn-outline-success telechargement"><a href="../<?php echo $chemin; ?>/<?php echo $classe; ?>/<?php echo $matiere; ?>/<?php echo $donnees['nom']; ?>" download>Télécharger</a></button>
+					</div>
 		 		</div>
 
-				<div class="div_lecture_telechargement"> 
-					<button class="telechargement"><a href="../<?php echo $chemin; ?>/<?php echo $classe; ?>/<?php echo $matiere; ?>/<?php echo $donnees['nom']; ?>" download>Télécharger</a></button>
-				</div>
-		 	</div>
-		</div>
+
+			</div><br>
+
+		 	
 
 	 	<?php
-	 	}
+		 }
+echo '</div>';
 	 	$resultat->closeCursor();
 
 	}elseif($chemin === 'sujetevaluation') //si le dossier est sujetevaluation
@@ -126,6 +139,8 @@ if (isset($_SESSION['verification_page'])) {
 	header('Location: ../index.php');
 }
 	?>
+
+</div>
 
 </body>
 </html>
