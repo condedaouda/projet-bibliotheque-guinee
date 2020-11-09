@@ -3,7 +3,7 @@ session_cache_limiter('private, must-revalidate');
 session_cache_expire(60);
 
 session_start();
-require 'connection/dataConnexion.php'; //connexion a la base
+require './connection/dataConnexion.php'; //connexion a la base
 $_SESSION['classe_valeur'] = '';
 $_SESSION['verifyCookie'] = false;
 
@@ -53,9 +53,9 @@ $_SESSION['verifyCookie'] = false;
 			$_SESSION['slogant_ecole'] = $row['slogant'];
 
 			// la verification si c'est l'administrateur qui se connecte
-			if ($row['code_ecole'] === 'adminconde666') {
+			if ($row['code_ecole'] === 'adminconde666' and $row['nom_ecole'] === 'admin') {
 				// on lui redirige sur cette page pour la validation
-				header('Location: docs/AdminConfirme.php');
+				header('Location: ./docs/AdminConfirme.php');
 			}else{
 
 				$_SESSION['verifyCookie'] = false;
@@ -63,8 +63,9 @@ $_SESSION['verifyCookie'] = false;
 				$valNomCooki = $row['nom_ecole'];
 				$valCodeCookie = $row['code_ecole'];
 
-				setcookie('nom', $valNomCooki, time() + 365*24*3600, null, null, false, true);
-				setcookie('code', $valCodeCookie, time() + 365*24*3600, null, null, false, true);
+				// cookies pour une semaine
+				setcookie('nom', $valNomCooki, time() + 604800, null, null, false, true);
+				setcookie('code', $valCodeCookie, time() + 604800, null, null, false, true);
 				//la redirection
 				header('Location: docs/classe.php');
 				die();
@@ -76,10 +77,10 @@ $_SESSION['verifyCookie'] = false;
 	?>
 
 <div class ="wrap_class">
-	<h2>Inscrivez-vous ici</h2>
+	<h2>Connectez vous</h2>
 	<form method="post" action="index.php">
 		<input type="text" name="nom" id="code" required placeholder="nom de l'école" autofocus><br>
-		<input type="password" name="pass" id="pass" required placeholder="mot de passe" autofocus><br>
+		<input type="password" name="pass" id="pass" required placeholder="mot de passe"><br>
 		<div class='cookiEcole'>
 			<?php cookies() ?>
 		</div>

@@ -44,6 +44,7 @@ $nom_ecole = $_SESSION['nom_ecole_session'];
 	<meta charset="utf-8">
 	<!-- <link rel="stylesheet" type="text/css" href="../css/style.css"> -->
 	<link rel="stylesheet" type="text/css" href="../css/style1.css">
+	<link rel="stylesheet" type="text/css" href="../css/responsive.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 	<link rel="icon" type="image/png" href="../photo/icon.png"/>
@@ -55,7 +56,7 @@ $nom_ecole = $_SESSION['nom_ecole_session'];
 		div#content_body {
 			position: absolute;
 			width : 100%;
-			height: 100%;
+			min-height: 100vh;
 			background-image: url('../photo/<?php echo $_SESSION['nom_photo_ecole'] ?>');
 			background-color: rgba(100, 100, 100, 0.5);
 			background-blend-mode: lighten;
@@ -76,23 +77,13 @@ if (isset($_SESSION['verification_page'])) {
 	 ?>
 
 	<div class="wrap">
-		<?php echo '<h4>'. $nom_ecole .'</h4> '?>
+		<?php echo '<h5>'. $nom_ecole .'</h5> '?>
 
-		<a href="../photo/<?php echo $_SESSION['nom_photo_ecole'] ?>"><img src="../photo/<?php echo $_SESSION['nom_photo_ecole'] ?> " class="img-thumbnail photo_ecole"></a>
+		<a href="../photo/<?php echo $_SESSION['nom_photo_ecole'] ?>"><img src="../photo/<?php echo $_SESSION['nom_photo_ecole'] ?> " class="img-thumbnail photo_ecole"></a><br><br>
 
 		<form method="post" action="matieres.php" class="forme_classe">
-			<label for="classe">Veuillez choisir votre classe</label><br>
+			<label for="classe">Classe</label><br>
 			<select name="classe" id="classe">
-				<option value="7">7</option>
-				<option value="8">8</option>
-				<option value="9">9</option>
-				<option value="10">10</option>
-				<option value="11 SM">11 SM</option>
-				<option value="11 SS">11 SS</option>
-				<option value="11 SE">11 SE</option>
-				<option value="12 SS">12 SS</option>
-				<option value="12 SM">12 SM</option>
-				<option value="12 SE">12 SE</option>
 				<option value="Terminale SM">Terminale SM</option>
 				<option value="Terminale SS">Terminale SS</option>
 				<option value="Terminale SE">Terminale SE</option>

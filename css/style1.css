@@ -19,13 +19,13 @@
 
 .wrap{
     max-width: 350px;
-    border-radius: 20px;
+    border-radius: 10px;
     margin: auto;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.7);
     box-sizing: border-box;
     padding: 40px;
     color: #fff;
-    margin-top: 100px;
+    margin-top: 10px;
 }
 
 h2{
@@ -41,9 +41,9 @@ input[type=text], input[type=password]{
     border: none;
     border-bottom: 1px dotted #fff;
     color: #fff;
-    border-radius: 5px;
+    border-radius: 2px;
     margin: 5px;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 input[type=submit]{
@@ -53,9 +53,9 @@ input[type=submit]{
     margin-top: 30px;
     outline: none;
     border: none;
-    background: #606dde;
+    background: #2E64FE;
     opacity: 0.7;
-    border-radius: 20px;
+    border-radius: 10px;
     font-size: 20px;
     color: #fff;
 }
@@ -71,7 +71,7 @@ input[type=submit]:hover {
 /* dossier class */
 .wrap_class{
     max-width: 350px;
-    border-radius: 20px;
+    border-radius: 15px;
     margin: auto;
     background: rgba(0, 0, 0, 0.8);
     box-sizing: border-box;
@@ -80,7 +80,7 @@ input[type=submit]:hover {
     margin-top: 100px;
 }
 
-h4{
+h5{
     text-align: center;
 }
 
@@ -91,7 +91,7 @@ h4{
 }
 
 .forme_classe {
-    text-align: center;
+    /* text-align: center; */
     font-size: 20px;
 }
 
@@ -105,10 +105,10 @@ select{
     border: none;
     border-bottom: 1px dotted #fff;
     color: #000;
-    border-radius: 5px;
+    border-radius: 2px;
     margin: 5px;
-    font-weight: bold;
-    opacity: 0.5;
+    /* font-weight: bold; */
+    opacity: 0.7;
 
 }
 
@@ -116,9 +116,9 @@ select{
 /* le dossier matieres */
 .wrap_matieres {
     max-width: 350px;
-    border-radius: 20px;
+    border-radius: 10px;
     margin: auto;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.7);
     box-sizing: border-box;
     padding: 40px;
     color: #fff;
@@ -142,9 +142,9 @@ select{
 
 .wrap_dossier {
     max-width: 350px;
-    border-radius: 20px;
+    border-radius: 10px;
     margin: auto;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.7);
     box-sizing: border-box;
     padding: 40px;
     color: #fff;
@@ -204,12 +204,14 @@ select{
 
 .image_conteneur {
     width: 99%;
+    height: 100%;
     height: 340px;
     margin: auto;
 }
 
 .photo_liv_bro {
     width: 100%;
+    max-height: 310px !important;
 }
 
 .container_lecture_telechargement {
@@ -218,15 +220,80 @@ select{
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    margin: 0 3px;
+    margin: 10px 20px 0px 20px;
 }
 
 .lecture{
     width: 100px;
 }
 
-.commentaire_livr_broch {
-    background-color: #F2F2F2;
+
+.annee_sujet {
+    width: 300px;
+    height: auto;
+    background-color: #FAFAFA;
+    box-sizing: border-box;
+    margin: 5px;
+    font-size: 22px;
 }
+
+.sujet_evaluation {
+    width: 300px;
+    height: auto;
+    background-color: #FAFAFA;
+    box-sizing: border-box;
+    margin: 5px;
+    font-size: 18px;
+    text-align: initial;
+    padding: 0 5px;
+}
+
+
+.result_vide {
+    text-align: center;
+    margin-top: 20%;
+    color: red;
+}
+
+.nom_ecole_recherchefinal {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+
+/* admin confirm */
+
+.form_adminconfirm {
+    width: 280px !important;
+    padding: 10px;
+    margin-top: 60px !important;
+    display: block;
+    margin: auto;
+    background-color: #E6E6E6;
+    border-radius: 3px;
+}
+
+.form_adminconfirm p {
+    text-align: center;
+    font-size: 18px;
+}
+
+.form_adminconfirm .password_admonconfirm {
+    height: 40px;
+    background-color: #fff !important;
+    margin: 0 !important;
+    color: #000;
+}
+
+/* detail.php */
+
+.classe_doc_detaile{
+    max-width: 350px;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 10px;
+}
+
 
 

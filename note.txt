@@ -5,3 +5,21 @@ les sujet d'examen et evaluations doivent etre ecrite sous format text avec les 
 
 apres le ficher doit etre converti en pdf
 
+
+
+
+pour l'administrateur:
+
+admin
+admincondeconde666  
+
+
+
+confirmAdmin:
+
+daou
+condeh    :le principal compte, dont on peut supprimer
+
+
+condeh
+condeh

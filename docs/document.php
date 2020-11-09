@@ -65,80 +65,71 @@ echo '</div>';
 	$val_doc_search = ""; //on vide le contenu
 echo '<div class="liste_document">';
 
-echo '<div class="container">';
-	// si le dossier nest pas sujetevaluation
-	if ($chemin === 'livres' OR $chemin === 'brochures') {
-		$resultat = $connexion->query("SELECT * FROM $data WHERE class = '$classe' AND matiere = '$matiere'");
-	 	while ($donnees = $resultat->fetch()) {
-	 	?>
+	echo '<div class="container">';
+		// si le dossier nest pas sujetevaluation
+		if ($chemin === 'livres' OR $chemin === 'brochures') {
+			$resultat = $connexion->query("SELECT * FROM $data WHERE class = '$classe' AND matiere = '$matiere'");
+			while ($donnees = $resultat->fetch()) {
+			?>
 
-			<div class="box">
-				<div class="image_conteneur">
+				<div class="box">
+					<div class="image_conteneur">
 
-					<p class="commentaire_livr_broch">
-						<?php echo $donnees['commentaire']; ?>				
-					</p>
+						<form method="POST" action="detail.php">
+							<input type="" name="nom_detail" value="<?php echo $donnees['id']; ?>" hidden="name">
+							<button type="submit"  class="btn btn-link"><?php echo $donnees['commentaire']; ?></button>
+							
+							<!-- <p class="commentaire_livr_broch">
+								<?php //echo $donnees['commentaire']; ?>				
+							</p> -->
+						</form>
 
-					<a href="../<?php echo $chemin; ?>/<?php echo $classe; ?>/<?php echo $matiere; ?>/<?php echo $donnees['image']; ?>">					
-						<img src="../<?php echo $chemin; ?>/<?php echo $classe; ?>/<?php echo $matiere; ?>/<?php echo $donnees['image']; ?>" class='img-thumbnail photo_liv_bro'>
-					</a>
-				</div>
-				
-				<div class="container_lecture_telechargement">
-					<div class="div_lecture_telechargement">
-						<button class="btn btn-outline-primary lecture"><a href="../<?php echo $chemin; ?>/<?php echo $classe; ?>/<?php echo $matiere; ?>/<?php echo $donnees['nom']; ?>" >Ouvrir</a></button>
+						<a href="../<?php echo $chemin; ?>/<?php echo $classe; ?>/<?php echo $matiere; ?>/<?php echo $donnees['image']; ?>">					
+							<img src="../<?php echo $chemin; ?>/<?php echo $classe; ?>/<?php echo $matiere; ?>/<?php echo $donnees['image']; ?>" class='img-thumbnail photo_liv_bro'>
+						</a>
+					</div>
+					
+					<div class="container_lecture_telechargement">
+						<div class="div_lecture_telechargement">
+							<button class="btn btn-light lecture"><a href="../<?php echo $chemin; ?>/<?php echo $classe; ?>/<?php echo $matiere; ?>/<?php echo $donnees['nom']; ?>" >Ouvrir</a></button>
+						</div>
+
+						<div class="div_lecture_telechargement"> 
+							<button class="btn btn-light telechargement"><a href="../<?php echo $chemin; ?>/<?php echo $classe; ?>/<?php echo $matiere; ?>/<?php echo $donnees['nom']; ?>" download>Télécharger</a></button>
+						</div>
 					</div>
 
-					<div class="div_lecture_telechargement"> 
-						<button class="btn btn-outline-success telechargement"><a href="../<?php echo $chemin; ?>/<?php echo $classe; ?>/<?php echo $matiere; ?>/<?php echo $donnees['nom']; ?>" download>Télécharger</a></button>
-					</div>
-		 		</div>
 
+				</div><br>				
 
-			</div><br>
-
-		 	
-
-	 	<?php
-		 }
-echo '</div>';
+			<?php
+			}
+	
 	 	$resultat->closeCursor();
 
-	}elseif($chemin === 'sujetevaluation') //si le dossier est sujetevaluation
-		{	
-			$resultat = $connexion->query("SELECT * FROM $data WHERE class = '$classe' AND matiere = '$matiere'");
-		 	while ($donnees = $resultat->fetch()) {
-		 ?>
-
-			 <div class="commentaire_sujet_eval">
-			 	<a href="../<?php echo $chemin; ?>/<?php echo $classe; ?>/<?php echo $matiere; ?>/<?php echo $donnees['image']; ?>" ><?php echo $donnees['commentaire']; ?></a>
-			 </div>
-
-		 <?php  
+		}elseif ($chemin === 'sujetexamen') {
+			
+			$resultat = $connexion->query("SELECT * FROM $data WHERE class = '$classe' AND matiere = '$matiere' ORDER BY annee DESC ");
+			while ($donnees = $resultat->fetch()) {
+			?>
+			<div class="annee_sujet">
+				<div class="annee_sujets">
+					<a href="../<?php echo $chemin; ?>/<?php echo $classe; ?>/<?php echo $matiere; ?>/<?php echo $donnees['image']; ?>" ><?php echo $donnees['annee']; ?></a>
+				</div>
+			</div>
+		<?php 
 			}
-			$resultat->closeCursor();
+				$resultat->closeCursor();
 
-	}elseif ($chemin === 'sujetexamen') {
-		$resultat = $connexion->query("SELECT * FROM $data WHERE class = '$classe' AND matiere = '$matiere'");
-	 	while ($donnees = $resultat->fetch()) {
- 		?>
+		}else{
+				echo "Pas de fichier";
+			}
 
-		 <div class="number_annee">
-		 	<a href="../<?php echo $chemin; ?>/<?php echo $classe; ?>/<?php echo $matiere; ?>/<?php echo $donnees['image']; ?>" ><?php echo $donnees['annee']; ?></a>
-		 </div>
-
-	<?php 
+		}else{
+			header('Location: ../index.php');
 		}
-		 	$resultat->closeCursor();
-
-	}else{
-			echo "Pas de fichier";
-		}
-
-}else{
-	header('Location: ../index.php');
-}
-	?>
+			?>
+	</div>
 
 </div>
 

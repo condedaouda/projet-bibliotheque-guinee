@@ -40,21 +40,24 @@ $nom_ecole = $_SESSION['nom_ecole_session'];
 
 <?php 
 
+$terminaleM = array ('biologie', 'chimie', 'français', 'geographie', 'geologie', 'histoire', 'maths', 'physique');
+$terminaleE = array ('biologie', 'chimie', 'français', 'geographie', 'geologie', 'histoire', 'maths', 'physique');
+$terminaleS = array ('biologie', 'chimie', 'français', 'geographie', 'geologie', 'histoire', 'maths', 'physique');
+
     // on garde la valeur de la class dans une variable globale
 	if (isset($_POST['classe'])) {
 		$_SESSION['classe_valeur'] = $_POST['classe'];
 	}
 
-
 	// pour garder la valeur de classe quand on se retourne sur la page
 	if (isset($_SESSION['classe_valeur']) AND $_SESSION['classe_valeur'] != '' AND !isset($_POST['valeur_retour'])) {
 		// on change la classe de l'eleve s'il fait des modifications
 		$class = $_SESSION['class'] = $_SESSION['classe_valeur'];
-		$resultatClass = $connexion->query("SELECT nom_matiere FROM matieres WHERE class = '$class' ");
+		//$resultatClass = $connexion->query("SELECT nom_matiere FROM matieres WHERE class = '$class' ");
 
 echo '<div class="wrap_matieres">';       
         
-        echo '<h4>'. $nom_ecole .'</h4>';
+        echo '<h5>'. $nom_ecole .'</h5>';
 
         // s'il ya le slogant, on l'affiche au cas contraire on laisse
         
@@ -63,26 +66,52 @@ echo '<div class="wrap_matieres">';
 	 		echo '<div class="slogant_matieres">'. $_SESSION['slogant_ecole']. '</div>';
 		}
 
-		echo '<p class=valeur_class>Classe : '. $class .'</p>';
+		echo '<p class=valeur_class>'. $class .'</p>';
         ?>
 		
 		<?php 
 
-		while ($rowClass = $resultatClass->fetch()) {
-		?>
 
-        
-            <form method="POST" action="dossiers.php">
-                <input type="" name="nom_matiere" value="<?php echo $rowClass["nom_matiere"]; ?>" hidden="name">
-                <input type="submit" value="<?php echo $rowClass["nom_matiere"]; ?>" class="nom_matiere">
-            </form>
-        
+		if($_SESSION['classe_valeur'] === 'Terminale SM')
+			{
+				foreach($terminaleM as $element) {
+				?>
 
-	<?php
-        }
+				
+					<form method="POST" action="dossiers.php">
+						<input type="" name="nom_matiere" value="<?php echo $element; ?>" hidden="name">
+						<input type="submit" value="<?php echo $element; ?>" class="nom_matiere">
+					</form>
+				
+
+				<?php
+				}
+			}elseif($_SESSION['classe_valeur'] === 'Terminale SE'){
+				foreach($terminaleE as $element) {
+					?>
+						<form method="POST" action="dossiers.php">
+							<input type="" name="nom_matiere" value="<?php echo $element; ?>" hidden="name">
+							<input type="submit" value="<?php echo $element; ?>" class="nom_matiere">
+						</form>
+					
+	
+					<?php
+					}
+			}else{
+				foreach($terminaleS as $element) {
+					?>
+	
+					
+						<form method="POST" action="dossiers.php">
+							<input type="" name="nom_matiere" value="<?php echo $element; ?>" hidden="name">
+							<input type="submit" value="<?php echo $element; ?>" class="nom_matiere">
+						</form>
+					
+	
+					<?php
+					}
+			}
 echo '</div>';
-
-		$resultatClass->closeCursor();
 		die();
 	}
 

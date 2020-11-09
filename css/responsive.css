@@ -1,3 +1,14 @@
+
+td 
+{
+    border: 2px solid black;
+}
+
+.btn_ecole_ajout {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
 /* dans le document */
 
 @media screen and (max-width: 1200px){
@@ -25,4 +36,43 @@
     .photo_liv_bro {
         width: 99%;
     }
+
+    .container_lecture_telechargement {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        vertical-align: 2px;
+        margin: 10px 20px 0px 20px;
+    }
+
+    .div_lecture_telechargement {
+        margin-bottom: 5px;
+    }
+
+    .box{
+        height: 430px;
+    }
+
+
+    .wrap{
+        max-width: 350px;
+        /* border-radius: 20px; */
+        margin: auto;
+        background: rgba(0, 0, 0, 0.7);
+        /* box-sizing: border-box; */
+        padding: 40px;
+        color: #fff;
+        margin-top: 20px;
+    }
+
+    .classe_doc_detaile{
+        max-width: 350px;
+        border-radius: 10px;
+        margin: auto;
+        margin-top: 10px;
+    
+    }
 }
+

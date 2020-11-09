@@ -1,0 +1,158 @@
+.ajouts {
+    display: block;
+    width: 280px;
+    height: 300px;
+    background-color: white;
+    margin: auto;
+    margin-top: 50px;
+    padding: 20px;
+    font-size: 26px;
+}
+
+/* livre */
+.form_livre {
+    display: block;
+    width: 300px;
+    height: 300px;
+    background-color: tan;
+    margin: auto;
+    margin-top: 50px;
+    padding: 20px;
+    font-size: 23px;
+    border-radius: 3px;
+}
+
+.form_livre input{
+    background-color: #8181F7;
+    border: none;
+}
+
+.form_livre select{
+    border: none;
+}
+
+.photo_livre {
+    width: 200px;
+}
+
+.container_editer_supprimer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.supprimer {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+/* ajout livre */
+.form_ajout_livre {
+    display: block;
+    width: 400px;
+    margin: auto;
+    background-color: tan;
+    padding: 30px;
+
+}
+
+
+
+/* examen */
+.box_examen {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 20px;
+
+    color: red;
+}
+
+.box_lien_examen {
+    margin: 10px 20px;
+    display: block;
+    width: 220px;
+    height: 120px;
+    background-color: #BDBDBD;
+    text-align: center;
+}
+
+.box_lien_examen a {
+    margin-top: 20px;
+}
+
+.container_editer_supprimer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+
+}
+
+/* evaluation */
+.box_lien_evaluation {
+    margin: 10px 20px;
+    display: block;
+    width: 350px;
+    background-color: #BDBDBD;
+    text-align: center;
+}
+
+
+/* ecole */
+
+td 
+{
+    border: 2px solid black;
+}
+
+.btn_ecole_ajout {
+    width: 100px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.a_btn_ajout {
+    margin: 25px 0px 10px 10px;
+    font-size: 25px;
+}
+
+/* suppression */
+.btn_suppression{
+    width: 300px;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.btn_apres_ajout {
+    width: 300px;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+}
+
+/* edit_docs */
+.before_edit_doc {
+    width: 500px;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    background-color: tan;
+}
+
+.after_edit_doc {
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+}
+
+
+

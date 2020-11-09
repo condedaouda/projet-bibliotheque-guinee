@@ -18,6 +18,9 @@ require '../connection/dataConnexion.php';
 	<link rel="icon" type="image/png" href="../photo/icon.png"/>
 </head>
 <body class="bod_recherche_final">
+	<div class="nom_ecole_recherchefinal">
+		<h3><?php echo $_SESSION['nom_ecole_session']?></h3>
+	</div>
 
 	<div class="espace_finale"></div>
 
@@ -51,15 +54,19 @@ echo '<div class="liste_document">';
 			SELECT *
 			FROM $table
 			WHERE MATCH(commentaire) 
-			AGAINST('$recherche_valeur*' IN BOOLEAN MODE) AND class='$classe' AND matiere='$matiere' ");
+			AGAINST('$recherche_valeur*'IN BOOLEAN MODE) AND class='$classe'AND matiere='$matiere'");
 
 		while ( $result = $req->fetch()) {
 		?>
 		<div class="box">
 			<div class="image_conteneur">
-				<p class="commentaire_livr_broch">
-					<?php echo $result['commentaire']; ?>
-				</p>
+				<!-- <p class="commentaire_livr_broch"> -->
+				
+					<form method="POST" action="detail.php">
+						<input type="" name="nom_detail" value="<?php echo $result['id']; ?>" hidden="name">
+						<button type="submit"  class="btn btn-link"><?php echo $result['commentaire']; ?></button>
+					</form>
+				<!-- </p> -->
 
 				<div class="photo_livr_broch">
 					<a href="../<?php echo $table; ?>/<?php echo $classe; ?>/<?php echo $matiere; ?>/<?php echo $result['image']; ?>">
@@ -70,11 +77,11 @@ echo '<div class="liste_document">';
 
 		 	<div class="container_lecture_telechargement">
 		 		<div class="div_lecture_telechargement">
-		 			<button class="btn btn-outline-primary lecture"><a href="../<?php echo $table; ?>/<?php echo $classe; ?>/<?php echo $matiere; ?>/<?php echo $result['nom']; ?>">Ouvrir</a></button>
+		 			<button class="btn btn-light lecture"><a href="../<?php echo $table; ?>/<?php echo $classe; ?>/<?php echo $matiere; ?>/<?php echo $result['nom']; ?>">Ouvrir</a></button>
 		 		</div>
 
 				<div class="div_lecture_telechargement">
-					<button class="btn btn-outline-success telechargement"><a href="../<?php echo $table; ?>/<?php echo $classe; ?>/<?php echo $matiere; ?>/<?php echo $result['nom']; ?>" download>Télécharger</a></button>
+					<button class="btn btn-light telechargement"><a href="../<?php echo $table; ?>/<?php echo $classe; ?>/<?php echo $matiere; ?>/<?php echo $result['nom']; ?>" download>Télécharger</a></button>
 				</div>
 		 	</div>
 			
@@ -97,9 +104,11 @@ echo '<div class="liste_document">';
 
 		while ( $result = $req->fetch()) {
 		?>
-
-		<div class="result_sujetexamen">
-			<a href="../<?php echo $table; ?>/<?php echo $classe; ?>/<?php echo $matiere; ?>/<?php echo $result['image']; ?>" target="_blank"><?php echo $result['annee']; ?></a>
+		
+		<div class="annee_sujet">
+			<div class="annee_sujets">
+				<a href="../<?php echo $table; ?>/<?php echo $classe; ?>/<?php echo $matiere; ?>/<?php echo $result['image']; ?>" target="_blank"><?php echo $result['annee']; ?></a>
+			</div>
 		</div>
 
 		<?php 
@@ -120,8 +129,10 @@ echo '<div class="liste_document">';
 		while ($result = $req->fetch()) {
 		?>
 
-		<div class="commentaire_sujet_eval">
-			<a href="../<?php echo $table; ?>/<?php echo $classe; ?>/<?php echo $matiere; ?>/<?php echo $result['image']; ?>" target="_blank"><?php echo $result['commentaire']; ?></a>
+		<div class="sujet_evaluation">
+			<div class="commentaire_sujet_eval">
+				<a href="../<?php echo $table; ?>/<?php echo $classe; ?>/<?php echo $matiere; ?>/<?php echo $result['image']; ?>" target="_blank"><?php echo $result['commentaire']; ?></a>
+			</div>
 		</div>
 
 		<?php 

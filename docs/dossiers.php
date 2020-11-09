@@ -41,31 +41,29 @@ if (isset($_POST['nom_matiere'])) {
 
 	<?php 
 // la verifation de l'acces a la page
+$dossier = array ('livres', 'brochures', 'sujetexamen');
 if (isset($_SESSION['verification_page'])) {
 
 echo '<div class="wrap_dossier">';
 
-	echo '<h4>'. $_SESSION['nom_ecole_session'] .'</h4>';
-	$class = $_SESSION['class'];
-	$resultatClass = $connexion->query("SELECT class, nom_dossier FROM dossiers WHERE class = '$class' ");
-	
+	echo '<h5>'. $_SESSION['nom_ecole_session'] .'</h5>';	
 
-	while ($rowClass = $resultatClass->fetch()) {
+	foreach($dossier as $element) {
 	?>
 
 		<form method="POST" action="document.php">
-			<input type="" name="nom_dossier" value="<?php echo $rowClass["nom_dossier"]; ?>" hidden="name">
+			<input type="" name="nom_dossier" value="<?php echo $element; ?>" hidden="name">
 			
 			<input type="submit" value="<?php 
-			if($rowClass["nom_dossier"] == "sujetevaluation")
+			if($element == "sujetevaluation")
 			{
 				echo "sujet d'évaluation";
-			}elseif($rowClass["nom_dossier"] == "sujetexamen")
+			}elseif($element == "sujetexamen")
 			{
 				echo "sujet d'examen";
 			}else
 			{
-				echo $rowClass["nom_dossier"];
+				echo $element;
 			}
 			 
 			?>" class="dossier_button">
@@ -74,8 +72,6 @@ echo '<div class="wrap_dossier">';
 	<?php
 	}
 echo '</div>';
-
-	$resultatClass->closeCursor();
 
 	 ?>
 <?php 
